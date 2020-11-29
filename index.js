@@ -13,7 +13,7 @@ const lookupMacAddress = async (host) => {
   return mac;
 };
 
-const checkIpAndPrintInfo = async (host, port = 22) => {
+const checkIpAndPrintInfo = async (host) => {
   const res = await ping.promise.probe(host);
 
   if (res.alive) {
@@ -31,4 +31,4 @@ const findLocalIps = async (args) => {
   ipBlock.map(i => checkIpAndPrintInfo(`${addressBlock}.${i + 1}`));
 }
 
-module.exports = { findLocalIps };
+module.exports = { findLocalIps, checkIpAndPrintInfo, lookupMacAddress };
