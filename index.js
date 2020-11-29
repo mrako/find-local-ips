@@ -1,9 +1,12 @@
 const arp = require('@network-utils/arp-lookup');
 const ip = require('ip');
+const net = require('net');
 const oui = require('oui');
 const ping = require('ping');
 
 const lookupMacAddress = async (ipaddress) => {
+  if (!net.isIP(ipaddress)) return {};
+
   const mac = await arp.toMAC(ipaddress);
 
   try {
@@ -23,7 +26,7 @@ const checkIpAndPrintInfo = async (ipaddress) => {
     const res = await ping.promise.probe(ipaddress);
 
     if (res.alive) {
-      return Object.assign({}, { ip: ipaddress}, await lookupMacAddress(ipaddress));
+      return Object.assign({}, { ip: ipaddress }, await lookupMacAddress(ipaddress));
     }
   } catch (e) {
     return null;
