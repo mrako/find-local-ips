@@ -5,5 +5,5 @@ The original purpose of this tool is to find Raspberry Pi address when it is con
 ## Usage
 
 ```bash
-npm find-local-ips
+npx find-local-ips
 ```
