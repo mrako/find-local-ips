@@ -3,21 +3,30 @@ const ip = require('ip');
 const oui = require('oui');
 const ping = require('ping');
 
-const lookupMacAddress = async (host) => {
-  const mac = await arp.toMAC(host);
-  const lookup = oui(mac);
+const lookupMacAddress = async (ipaddress) => {
+  const mac = await arp.toMAC(ipaddress);
 
-  if (lookup) {
-    return lookup.split('\n')[0];
+  try {
+    const lookup = oui(mac);
+
+    if (lookup) {
+      return { mac, name: lookup.split('\n')[0] };
+    }
+  } catch (e) {
   }
-  return mac;
+
+  return { mac };
 };
 
-const checkIpAndPrintInfo = async (host) => {
-  const res = await ping.promise.probe(host);
+const checkIpAndPrintInfo = async (ipaddress) => {
+  try {
+    const res = await ping.promise.probe(ipaddress);
 
-  if (res.alive) {
-    console.log(`${host} - ${await lookupMacAddress(host)}`);
+    if (res.alive) {
+      return Object.assign({}, { ip: ipaddress}, await lookupMacAddress(ipaddress));
+    }
+  } catch (e) {
+    return null;
   }
 };
 
@@ -28,7 +37,9 @@ const findLocalIps = async (args) => {
 
   const ipBlock = [...Array(254).keys()];
 
-  ipBlock.map(i => checkIpAndPrintInfo(`${addressBlock}.${i + 1}`));
+  const hosts = await Promise.all(ipBlock.map(async (i) => checkIpAndPrintInfo(`${addressBlock}.${i + 1}`)));
+
+  return hosts.filter(Boolean);
 }
 
 module.exports = { findLocalIps, checkIpAndPrintInfo, lookupMacAddress };
