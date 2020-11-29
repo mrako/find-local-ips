@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@network-utils/arp-lookup": "^1.3.4",
     "ip": "^1.1.5",
+    "oui": "^11.0.45",
     "ping": "^0.3.0"
   }
 }
