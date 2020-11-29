@@ -1,6 +1,9 @@
 {
   "name": "find-local-ips",
   "version": "0.0.1",
+  "bin": {
+    "find-local-ips": "./cli.js"
+  },
   "scripts": {
     "patch-release": "npm version patch && npm publish && git push --follow-tags"
   },
@@ -18,7 +21,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrako/find-local-ips.git"
+    "url": "https://github.com/mrako/find-local-ips"
   },
   "author": "Marko Klemetti",
   "license": "MIT",
