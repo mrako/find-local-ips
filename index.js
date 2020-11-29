@@ -16,6 +16,7 @@ const lookupMacAddress = async (ipaddress) => {
       return { mac, name: lookup.split('\n')[0] };
     }
   } catch (e) {
+    console.log(e);
   }
 
   return { mac };
@@ -29,6 +30,7 @@ const checkIpAndPrintInfo = async (ipaddress) => {
       return Object.assign({}, { ip: ipaddress }, await lookupMacAddress(ipaddress));
     }
   } catch (e) {
+    console.log(e);
     return null;
   }
 };
