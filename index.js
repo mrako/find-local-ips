@@ -5,7 +5,6 @@ const localIp = process.argv[2] || ip.address();
 
 const checkIp = async (host, port = 22) => {
   const res = await ping.promise.probe(host);
-  console.log(host);
 
   if (res.alive) {
     console.log(`alive: ${host}`);
