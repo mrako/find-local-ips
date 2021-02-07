@@ -1,6 +1,6 @@
 # Find Local IPs
 
-The original purpose of this tool is to find Raspberry Pi address when it is connected to the same network with your computer.
+The original purpose for this tool is to find Raspberry Pi address and MAC when it is connected to the same network with your computer.
 
 ## Usage
 

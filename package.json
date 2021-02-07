@@ -22,7 +22,7 @@
     "ping": "^0.3.0"
   },
   "description": "The purpose of this tool is to list all devices and their MAC addresses in the same network.",
-  "main": "index.js",
+  "main": "cli.js",
   "directories": {
     "test": "test"
   },
