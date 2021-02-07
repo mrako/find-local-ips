@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
-const index = require('./index');
+const ip = require('ip');
+
+const find = require('./src/find');
+
+const IP_ADDRESS = process.argv[2] || ip.address();
 
 (async () => {
-  const hosts = await index.findLocalIps(process.argv);
+  const hosts = await find.localIps(IP_ADDRESS);
   hosts.map(host => console.log(`${host.ip} (${host.name || host.mac})`));
 })();

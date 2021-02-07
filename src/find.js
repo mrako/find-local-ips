@@ -1,5 +1,4 @@
 const arp = require('@network-utils/arp-lookup');
-const ip = require('ip');
 const net = require('net');
 const oui = require('oui');
 const ping = require('ping');
@@ -23,6 +22,8 @@ const lookupMacAddress = async (ipaddress) => {
 };
 
 const checkIpAndPrintInfo = async (ipaddress) => {
+  if (!net.isIP(ipaddress)) return;
+
   try {
     const res = await ping.promise.probe(ipaddress);
 
@@ -31,20 +32,17 @@ const checkIpAndPrintInfo = async (ipaddress) => {
     }
   } catch (e) {
     console.log(e);
-    return null;
   }
 };
 
-const findLocalIps = async (args) => {
-  const localIp = args[2] || ip.address();
-
-  const addressBlock = localIp.substring(0, localIp.lastIndexOf('.'));
+const localIps = async (ipAddress) => {
+  const addressBlock = ipAddress.substring(0, ipAddress.lastIndexOf('.'));
 
   const ipBlock = [...Array(254).keys()];
 
   const hosts = await Promise.all(ipBlock.map(async (i) => checkIpAndPrintInfo(`${addressBlock}.${i + 1}`)));
 
   return hosts.filter(Boolean);
-}
+};
 
-module.exports = { findLocalIps, checkIpAndPrintInfo, lookupMacAddress };
+module.exports = { localIps, lookupMacAddress, checkIpAndPrintInfo };
