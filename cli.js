@@ -8,5 +8,13 @@ const IP_ADDRESS = process.argv[2] || ip.address();
 
 (async () => {
   const hosts = await find.localIps(IP_ADDRESS);
-  hosts.map(host => console.log(`${host.ip} (${host.name || host.mac})`));
+  hosts.map(host => {
+    const info = [];
+
+    info.push(host.ip);
+    info.push(`(${host.mac})`);
+    if (host.name) info.push(host.name);
+
+    console.log(info.join(' '));
+  });
 })();
