@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/mrako/find-local-ips/compare/v0.0.10...v0.0.11) (2022-04-10)
+
+
+### Bug Fixes
+
+* **cd:** update node version ([52e0a93](https://github.com/mrako/find-local-ips/commit/52e0a93ffd1a778bbaa256e5ecf7a85786110e12))
+
 ### 0.0.10 (2022-04-10)
 
 
