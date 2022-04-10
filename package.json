@@ -1,6 +1,6 @@
 {
   "name": "find-local-ips",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Marko Klemetti",
   "license": "MIT",
   "repository": {
@@ -15,8 +15,8 @@
     "src/find.js"
   ],
   "scripts": {
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "release": "./node_modules/.bin/standard-version && git push --follow-tags",
     "test": "jest",
