@@ -24,9 +24,9 @@
   },
   "dependencies": {
     "@network-utils/arp-lookup": "^2.0.1",
-    "ip": "^1.1.5",
-    "oui": "^12.0.1",
-    "ping": "^0.4.1"
+    "ip": "riovir/node-ip",
+    "oui": "^12.0.12",
+    "ping": "^0.4.2"
   },
   "description": "The purpose of this tool is to list all devices and their MAC addresses in the same network.",
   "main": "cli.js",
@@ -34,8 +34,8 @@
     "test": "test"
   },
   "devDependencies": {
-    "eslint": "^8.13.0",
-    "jest": "^27.5.1",
-    "standard-version": "^9.3.2"
+    "eslint": "^8.19.0",
+    "jest": "^28.1.2",
+    "standard-version": "^9.5.0"
   }
 }
