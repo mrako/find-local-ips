@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/mrako/find-local-ips/compare/v0.0.14...v0.0.17) (2024-12-04)
+
+
+### Features
+
+* add picking current ip from ipconfig ([fd31a08](https://github.com/mrako/find-local-ips/commit/fd31a08b96c52f06744440415390020596d3b2b3))
+* update eslint config ([ebb94a9](https://github.com/mrako/find-local-ips/commit/ebb94a90b614bab749c3d33921d6bd4cded5c0a3))
+* update packages and replace oui library ([c2ff60a](https://github.com/mrako/find-local-ips/commit/c2ff60abc0673946f549e4143b461fb2bf15d97b))
+
+
+### Bug Fixes
+
+* fix lint ([6b114b5](https://github.com/mrako/find-local-ips/commit/6b114b50e0c52c51a9cc7228ad1a18bf0da2ec81))
+* update github actions node version ([4319bf0](https://github.com/mrako/find-local-ips/commit/4319bf0ffe307e75f0904293c49b98cfd53b98d2))
+
 ### [0.0.16](https://github.com/mrako/find-local-ips/compare/v0.0.15...v0.0.16) (2024-12-04)
 
 ### [0.0.15](https://github.com/mrako/find-local-ips/compare/v0.0.14...v0.0.15) (2024-12-04)
