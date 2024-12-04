@@ -10,6 +10,6 @@ const getEn0IPv4 = async () => {
   } catch (error) {
     throw new Error(`Error fetching IP address: ${error.message}`);
   }
-}
+};
 
 module.exports = { getEn0IPv4 };
