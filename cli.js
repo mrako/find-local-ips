@@ -1,20 +1,25 @@
 #!/usr/bin/env node
 
-const ip = require('ip');
-
+const ip = require('./src/ip');
 const find = require('./src/find');
 
-const IP_ADDRESS = process.argv[2] || ip.address();
+const IP_ADDRESS = process.argv[2];
 
 (async () => {
-  const hosts = await find.localIps(IP_ADDRESS);
-  hosts.map(host => {
-    const info = [];
+  try {
+    const myIp = IP_ADDRESS || (await ip.getEn0IPv4());
+    const hosts = await find.localIps(myIp);
 
-    info.push(host.ip);
-    info.push(`(${host.mac})`);
-    if (host.name) info.push(host.name);
+    hosts.map((host) => {
+      const info = [];
 
-    console.log(info.join(' '));
-  });
+      info.push(host.ip);
+      info.push(`(${host.mac})`);
+      if (host.name) info.push(host.name);
+
+      console.log(info.join(' '));
+    });
+  } catch (err) {
+    console.error(err.message);
+  }
 })();

@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@network-utils/arp-lookup": "^2.0.1",
-    "ip": "riovir/node-ip",
     "oui": "^12.0.12",
     "ping": "^0.4.2"
   },
