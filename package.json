@@ -12,7 +12,8 @@
   },
   "files": [
     "cli.js",
-    "src/find.js"
+    "src/find.js",
+    "src/ip.js"
   ],
   "scripts": {
     "prepublishOnly": "npm test && npm run lint",
