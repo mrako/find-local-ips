@@ -1,8 +1,9 @@
-jest.mock('oui');
+jest.mock('mac-oui-lookup');
 
 const arp = require('@network-utils/arp-lookup');
-const oui = require('oui');
 const ping = require('ping');
+
+const { getVendor } = require('mac-oui-lookup');
 
 const find = require('../src/find');
 
@@ -28,7 +29,7 @@ describe('lookupMacAddress', () => {
     const fakeName = 'My Raspberry Pi';
 
     arp.toMAC = jest.fn().mockReturnValue(fakeMac);
-    oui.mockReturnValue(fakeName);
+    getVendor.mockReturnValue(fakeName);
 
     const mac = await find.lookupMacAddress('192.168.0.1');
 
@@ -59,7 +60,7 @@ describe('checkIpAndPrintInfo', () => {
     ping.promise.probe = jest.fn(() => Promise.resolve({ alive: true }));
 
     arp.toMAC = jest.fn().mockReturnValue(fakeMac);
-    oui.mockReturnValue(fakeName);
+    getVendor.mockReturnValue(fakeName);
 
     const ip = await find.checkIpAndPrintInfo('192.168.0.1');
 

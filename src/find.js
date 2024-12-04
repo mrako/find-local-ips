@@ -1,7 +1,8 @@
 const arp = require('@network-utils/arp-lookup');
 const net = require('net');
-const oui = require('oui');
 const ping = require('ping');
+
+const { getVendor } = require('mac-oui-lookup');
 
 const lookupMacAddress = async (ipaddress) => {
   if (!net.isIP(ipaddress)) return {};
@@ -9,7 +10,7 @@ const lookupMacAddress = async (ipaddress) => {
   const mac = await arp.toMAC(ipaddress);
 
   try {
-    const lookup = oui(mac);
+    const lookup = getVendor(mac);
 
     if (lookup) {
       return { mac, name: lookup.split('\n')[0] };
