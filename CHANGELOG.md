@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/mrako/find-local-ips/compare/v0.0.17...v0.0.18) (2024-12-04)
+
+
+### Bug Fixes
+
+* add missing ip file to package ([efa8248](https://github.com/mrako/find-local-ips/commit/efa82487685ee1b1af22114f21eb12887783cad0))
+
 ### [0.0.17](https://github.com/mrako/find-local-ips/compare/v0.0.14...v0.0.17) (2024-12-04)
 
 
